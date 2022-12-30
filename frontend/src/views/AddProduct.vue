@@ -141,7 +141,6 @@ export default {
       errMsg: [
         'Please, provide the data of indicated type', 
         'Please, submit required data',
-        'SKU is already present, please choose a unique SKU'
           ],
       errMsgIndex: 0,
 
@@ -176,11 +175,6 @@ export default {
             }
       }).then(function(){
         that.$router.push({name: 'Home'})
-      }).catch(function(e){
-        if(e.response.status == 409){
-          that.errMsgIndex = 2
-          that.showErr = true
-        }      
       })
 
     },
