@@ -1,0 +1,10 @@
+SetEnv DB_HOST localhost
+SetEnv DB_PASSWORD 1999
+SetEnv DB_USERNAME khaled
+SetEnv DB_NAME scandiweb
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
