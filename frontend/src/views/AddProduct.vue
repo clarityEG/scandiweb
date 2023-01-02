@@ -141,7 +141,9 @@ export default {
       errMsg: [
         'Please, provide the data of indicated type', 
         'Please, submit required data',
-          ],
+        'Please provide a unique product SKU.',
+        'UnKnown error occurred please try again later.'
+        ],
       errMsgIndex: 0,
 
       sku: '',
@@ -175,6 +177,14 @@ export default {
             }
       }).then(function(){
         that.$router.push({name: 'Home'})
+      }).catch(function(err){
+        if(err.response.status == 409){
+          that.errMsgIndex = 2
+          that.showErr = 1
+        }else{
+          that.errMsgIndex = 3
+          that.showErr = 1
+        }
       })
 
     },
